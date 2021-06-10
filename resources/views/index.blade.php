@@ -13,47 +13,36 @@
             <input type="text" placeholder="Search" id="search" class="search">
         </form>
     </header>
-
+    
     <main id="main">
+        @foreach ($movie as $mov)    
         <div class="movie">
-            <img src="{{asset ('/images/exemple.png')}}" alt="Image">
-            
+            <a href={{route('movie.show')}}>
+            <img src="{{'https://image.tmdb.org/t/p/w500' .$mov ['poster_path']}}" alt="poster">
+            </a>
+                
             <div class="movie-info">
-                <h3>Movie Title</h3>
-                <span class="green">8</span>
+                <h3>{{$mov ['title']}}</h3>
+                
             </div>
             
-            <div class="overview">
-                <h3>Sinopse</h3>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quis hic pariatur placeat id voluptates, dolore dolores
-            </div>    
-        </div>
-        
-        <div class="movie">
-            <img src="{{asset ('/images/exemple.png')}}" alt="Image">
-            <div class="movie-info">
-                <h3>Movie Title</h3>
-                <span class="green"> 8 </span>
+            <div class="desc">
+                @foreach ($mov ['genre_ids'] as $genre)
+                {{$genres->get($genre)}}@if($loop->last), @endif
+                @endforeach
+                <span>|</span>
+                <span>{{$mov ['release_date']}}</span>
+                <span>|</span>
+                <span>Avarege:</span>
+                <span>{{$mov['vote_average'] * 10 }}</span>
+                <span>%</span>
             </div>
+            
             <div class="overview">
                 <h3>Sinopse</h3>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quis hic pariatur placeat id voluptates, dolore dolores voluptate dignissimos? Possimus.
+                {{$mov ['overview']}}    
             </div>    
         </div>
-        
-        <div class="movie">
-            <img src="{{asset ('/images/exemple.png')}}" alt="Image">
-            <div class="movie-info">
-                <h3>Movie Title</h3>
-                <span class="green"> 8 </span>
-            </div>
-            <div class="overview">
-                <h3>Sinopse</h3>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quis hic pariatur placeat id voluptates, dolore dolores voluptate dignissimos? Possimus.
-            </div>    
-        </div>
-        
-    </main>
-    <script scr="scripts.js"></script>
+        @endforeach          
 </body>
 </html>

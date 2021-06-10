@@ -9,6 +9,7 @@ use App\Http\Controllers\MoviesController;
 //Route::get('/movies/{movies}', [MoviesController::class]->name ());
 
 //Roube::get('/', )
+
 Route::get('/', 'MoviesController@index')->name ('movie.index');
 Route::get('/movie/{movie}', 'MoviesController@show')->name ('movie.show');
 
