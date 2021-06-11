@@ -29,10 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
-    
+
     'tmdb' => [
         'token' => env('TMDB_TOKEN'),
-        
+        'url' => env('TMDB_URL'),
     ],
 
 ];
