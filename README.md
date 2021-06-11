@@ -1,19 +1,24 @@
-# QuickDev
- Task001
+# QuikDev Movie Challenge
 
+## Requisitos
 
-1- environment installation -> PHP -> composer -> laravel
+- PHP 7
+- Composer
 
-2- created the front and blade with the index page
+## Passos para instalação
 
-3- imported the style sheet by the public folder, because importing directly from the 
-css folder was giving an error
+Primeiramente baixe este repositório e em seguida execute os comandos abaixo no terminal:
 
-4- the same goes for the details page. I don't know why it wasn't working in the view folder
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+```
 
-5- controllers created, and solved the class not found problem
+Para roda a aplicação
 
-6- configured routes
+```bash
+php -S 127.0.0.1:8000 -t public
+```
 
-
-
+Acesse aqui: http://127.0.0.1:8000
